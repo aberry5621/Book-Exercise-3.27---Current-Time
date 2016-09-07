@@ -20,7 +20,6 @@ int main() {
     cout << "Enter the time zone offset to GMT: ";
     cin >> gmt_offset_num;
     
-    
     // P
     
     // total seconds since epoch
@@ -42,7 +41,7 @@ int main() {
     int current_hour = total_hours % 24;
 
     // compute am or pm
-    bool pm = (total_hours % 24 >= 12) ? 1 : 0;
+    bool pm = 0;
 
     // offset the current hour from GMT
     int gmt_offset_hour = current_hour + gmt_offset_num;
@@ -50,88 +49,112 @@ int main() {
     switch (gmt_offset_hour) {
         case 0:
             gmt_offset_hour = 12;
+            pm = 0;
             break;
         case 1:
             gmt_offset_hour = 1;
+            pm = 0;
             break;
         case 2:
             gmt_offset_hour = 2;
+            pm = 0;
             break;
         case 3:
             gmt_offset_hour = 3;
+            pm = 0;
             break;
         case 4:
             gmt_offset_hour = 4;
+            pm = 0;
             break;
         case 5:
             gmt_offset_hour = 5;
+            pm = 0;
             break;
         case 6:
             gmt_offset_hour = 6;
+            pm = 0;
             break;
         case 7:
             gmt_offset_hour = 7;
+            pm = 0;
             break;
         case 8:
             gmt_offset_hour = 8;
+            pm = 0;
             break;
         case 9:
             gmt_offset_hour = 9;
+            pm = 0;
             break;
         case 10:
             gmt_offset_hour = 10;
+            pm = 0;
             break;
         case 11:
             gmt_offset_hour = 11;
+            pm = 0;
             break;
         case 12:
             gmt_offset_hour = 12;
+            pm = 1;
             break;
         case 13:
             gmt_offset_hour = 1;
+            pm = 1;
             break;
         case 14:
             gmt_offset_hour = 2;
+            pm = 1;
             break;
         case 15:
             gmt_offset_hour = 3;
+            pm = 1;
             break;
         case 16:
             gmt_offset_hour = 4;
+            pm = 1;
             break;
         case 17:
             gmt_offset_hour = 5;
+            pm = 1;
             break;
         case 18:
             gmt_offset_hour = 6;
+            pm = 1;
             break;
         case 19:
             gmt_offset_hour = 7;
+            pm = 1;
             break;
         case 20:
             gmt_offset_hour = 8;
+            pm = 1;
             break;
         case 21:
             gmt_offset_hour = 9;
+            pm = 1;
             break;
         case 22:
             gmt_offset_hour = 10;
+            pm = 1;
             break;
         case 23:
             gmt_offset_hour = 11;
-            break;
-        case 24:
-            gmt_offset_hour = 0;
+            pm = 1;
             break;
         default:
             break;
     }
     
-    
     // O
     cout << "Current time: " << current_hour << ":" << current_minute << ":" << current_second << " GMT" << endl;
     
-    cout << "The current time is: " << gmt_offset_hour << ":" << current_minute << ":" << current_second << " GMT" << endl;
+    if (pm) {
+        cout << "The current time is: " << gmt_offset_hour << ":" << current_minute << ":" << current_second << " PM" << endl;
+    } else {
+        cout << "The current time is: " << gmt_offset_hour << ":" << current_minute << ":" << current_second << " AM" << endl;
+    }
     
     return 0;
 }
